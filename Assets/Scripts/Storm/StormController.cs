@@ -1,34 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(ParticleSystem))]
+//[RequireComponent(typeof(BoxCollider2D))]
+
 public class StormController : MonoBehaviour
 {
 
     [Header("Particle System")]
 
     //Rate at which the storm expands horizontally
-    [SerializeField] private float expansionRate = 2f;
+    [SerializeField] private float expansionRate = 10f;
 
     //Max Width of the storm
-    [SerializeField] private float maxWidth = 100f;
+    [SerializeField] private float maxWidth = 1000f;
 
     //Initial Width of the storm
     [SerializeField] private float currentWidth = 1f;
 
     //Rate at which rain falls down
-    [SerializeField] private float emissionRate = 100;
+    [SerializeField] private float emissionRate = 50;
 
     private ParticleSystem pSystem;
     private ParticleSystem.ShapeModule shapeModule;
     private ParticleSystem.EmissionModule emissionModule;
+
+    //private BoxCollider2D stormCollider; 
 
     //Initial position of the particle system
     private Vector3 initialPosition;
 
     private void Start()
     {
+       /* stormCollider = GetComponent<BoxCollider2D>();
+        stormCollider.isTrigger = true;*/
+
         pSystem = GetComponent<ParticleSystem>();
 
         shapeModule = pSystem.shape;
@@ -55,4 +63,14 @@ public class StormController : MonoBehaviour
 
         }
     }
+
+    /*
+     TO BE IMPLMENTED WHEN THE PLAYER IS ADDED 
+     * private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject == player)
+        {
+            //Do something
+        }
+    }*/
 }
