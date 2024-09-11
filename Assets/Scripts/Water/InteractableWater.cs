@@ -30,7 +30,7 @@ public class InteractableWater : MonoBehaviour
     public float width = 10f;
     public float height = 4f;
     public Material waterMaterial;
-    private const int totalYVertices = 2;
+    private const int totalYVertices = 2; //top and bottom
 
     [Header("Gizmo")]
     public Color GizmoColor = Color.white;
@@ -70,8 +70,8 @@ public class InteractableWater : MonoBehaviour
         {
             WaterPoint point = waterPoints[i];
 
-            float x = point.position = point.targetHeight;
-            float acceleration = springConstant * x - damping * point.velocity;
+            float x = point.position - point.targetHeight;
+            float acceleration = -springConstant * x - damping * point.velocity;
             point.position += point.velocity * speedMult * Time.fixedDeltaTime;
             vertices[topVerticesIndex[i]].y = point.position;
             point.velocity += acceleration * speedMult * Time.fixedDeltaTime;
@@ -89,10 +89,10 @@ public class InteractableWater : MonoBehaviour
                 waterPoints[i + 1].velocity += rightDelta;
             }
 
-            //Update Mesh
-            mesh.vertices = vertices;
-
         }
+
+        //Update Mesh
+        mesh.vertices = vertices;
 
     }
 
@@ -136,7 +136,7 @@ public class InteractableWater : MonoBehaviour
     {
         mesh = new Mesh();
 
-        //add vertices
+        //Add Vertices
         vertices = new Vector3[totalXVertices * totalYVertices];
         topVerticesIndex = new int[totalXVertices];
         for (int y = 0; y < totalYVertices; y++)
@@ -155,7 +155,7 @@ public class InteractableWater : MonoBehaviour
 
         }
 
-        //construct triangles
+        //Construct Triangles
         int[] triangles = new int[(totalXVertices - 1) * (totalYVertices - 1) * 6];
         int index = 0;
 

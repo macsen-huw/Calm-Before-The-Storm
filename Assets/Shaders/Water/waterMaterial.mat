@@ -57,7 +57,7 @@ Material:
     - _WaveSize: 0.16
     - _WaveSpeed: 4
     m_Colors:
-    - _BodyColour: {r: 0, g: 0.42745098, b: 1, a: 0}
+    - _BodyColour: {r: 0, g: 0.008948681, b: 0.4433962, a: 0}
     - _CausticColour: {r: 0.0786757, g: 0.9811321, b: 0.794599, a: 0}
     - _CausticScrollDir: {r: 0.045, g: 0, b: 0, a: 0}
     - _CausticTiling: {r: 0.5, g: 1.5, b: 0, a: 0}
