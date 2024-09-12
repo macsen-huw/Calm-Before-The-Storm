@@ -12,16 +12,17 @@ public class StormController : MonoBehaviour
     [Header("Particle System")]
 
     //Rate at which the storm expands horizontally
-    [SerializeField] private float expansionRate = 10f;
+    [SerializeField] private float movementRate = 10f;
+    [SerializeField] private float colliderOffset = -2f;
 
     //Max Width of the storm
-    [SerializeField] private float maxWidth = 1000f;
+    //[SerializeField] private float maxWidth = 1000f;
 
     //Initial Width of the storm
-    [SerializeField] private float currentWidth = 1f;
+    private float currentWidth = 1f;
 
     //Rate at which rain falls down
-    [SerializeField] private float emissionRate = 50;
+    //[SerializeField] private float emissionRate = 50;
 
     private ParticleSystem pSystem;
     private ParticleSystem.ShapeModule shapeModule;
@@ -49,24 +50,15 @@ public class StormController : MonoBehaviour
     void Update()
     {
         
-        if(currentWidth < maxWidth)
-        {
-            //Expand the width of the storm over time
-            currentWidth += expansionRate * Time.deltaTime;
+        //Expand the width of the storm over time
+        currentWidth += movementRate * Time.deltaTime;
 
-            //Make the particle system's box wider
-            shapeModule.scale = new Vector3(currentWidth, shapeModule.scale.y, shapeModule.scale.z);
+        //Move the particle system along
+        shapeModule.position = new Vector3(initialPosition.x + (currentWidth / 2), initialPosition.y, initialPosition.z);
+        
+        //Add an offset to the collider box to match with the rain drops
+        stormCollider.offset = new Vector2((initialPosition.x + (currentWidth / 2)) + colliderOffset, stormCollider.offset.y);
 
-            shapeModule.position = new Vector3(initialPosition.x + (currentWidth / 2), initialPosition.y, initialPosition.z);
-
-            //Adjust rate so that more raindrops are added, rather than the existing raindrops getting wider
-            emissionModule.rateOverTime = emissionRate * currentWidth;
-
-            //Adjust the box collider size
-            stormCollider.size = new Vector2(currentWidth, stormCollider.size.y);
-            stormCollider.offset = new Vector2(initialPosition.x + (currentWidth / 2), stormCollider.offset.y);
-
-        }
     }
 
  
