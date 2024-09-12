@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 [RequireComponent(typeof(ParticleSystem))]
-//[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(PolygonCollider2D))]
 
 public class StormController : MonoBehaviour
 {
@@ -13,38 +13,29 @@ public class StormController : MonoBehaviour
 
     //Rate at which the storm expands horizontally
     [SerializeField] private float movementRate = 10f;
-    [SerializeField] private float colliderOffset = -2f;
-
-    //Max Width of the storm
-    //[SerializeField] private float maxWidth = 1000f;
 
     //Initial Width of the storm
     private float currentWidth = 1f;
 
-    //Rate at which rain falls down
-    //[SerializeField] private float emissionRate = 50;
-
     private ParticleSystem pSystem;
     private ParticleSystem.ShapeModule shapeModule;
-    private ParticleSystem.EmissionModule emissionModule;
 
-    private BoxCollider2D stormCollider; 
+    private PolygonCollider2D stormCollider; 
 
     //Initial position of the particle system
     private Vector3 initialPosition;
-    private Vector2 initialColliderPosition;
 
     private void Start()
     {
-        stormCollider = GetComponent<BoxCollider2D>();
+        stormCollider = GetComponent<PolygonCollider2D>();
         stormCollider.isTrigger = true;
 
         pSystem = GetComponent<ParticleSystem>();
 
         shapeModule = pSystem.shape;
-        emissionModule = pSystem.emission;
 
         initialPosition = shapeModule.position;
+        stormCollider.offset = new Vector2(initialPosition.x, stormCollider.offset.y);
     }
 
     void Update()
@@ -56,8 +47,8 @@ public class StormController : MonoBehaviour
         //Move the particle system along
         shapeModule.position = new Vector3(initialPosition.x + (currentWidth / 2), initialPosition.y, initialPosition.z);
         
-        //Add an offset to the collider box to match with the rain drops
-        stormCollider.offset = new Vector2((initialPosition.x + (currentWidth / 2)) + colliderOffset, stormCollider.offset.y);
+        //Add an offset (-18) to the collider box to match with the rain drops
+        stormCollider.offset = new Vector2((initialPosition.x + (currentWidth / 2)) - 18, stormCollider.offset.y);
 
     }
 
