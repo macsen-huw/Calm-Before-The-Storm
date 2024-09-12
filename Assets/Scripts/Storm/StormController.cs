@@ -27,15 +27,16 @@ public class StormController : MonoBehaviour
     private ParticleSystem.ShapeModule shapeModule;
     private ParticleSystem.EmissionModule emissionModule;
 
-    //private BoxCollider2D stormCollider; 
+    private BoxCollider2D stormCollider; 
 
     //Initial position of the particle system
     private Vector3 initialPosition;
+    private Vector2 initialColliderPosition;
 
     private void Start()
     {
-       /* stormCollider = GetComponent<BoxCollider2D>();
-        stormCollider.isTrigger = true;*/
+        stormCollider = GetComponent<BoxCollider2D>();
+        stormCollider.isTrigger = true;
 
         pSystem = GetComponent<ParticleSystem>();
 
@@ -61,16 +62,21 @@ public class StormController : MonoBehaviour
             //Adjust rate so that more raindrops are added, rather than the existing raindrops getting wider
             emissionModule.rateOverTime = emissionRate * currentWidth;
 
+            //Adjust the box collider size
+            stormCollider.size = new Vector2(currentWidth, stormCollider.size.y);
+            stormCollider.offset = new Vector2(initialPosition.x + (currentWidth / 2), stormCollider.offset.y);
+
         }
     }
 
-    /*
-     TO BE IMPLMENTED WHEN THE PLAYER IS ADDED 
-     * private void OnTriggerEnter2D(Collider2D other)
+ 
+      private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject == player)
+        if(other.CompareTag("RoverBody"))
         {
-            //Do something
+            print("You've been hit!");
+
+            //End Game
         }
-    }*/
+    }
 }
