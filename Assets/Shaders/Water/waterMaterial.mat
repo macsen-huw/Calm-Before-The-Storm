@@ -52,10 +52,10 @@ Material:
     - _Float: 0
     - _Float_1: 0
     - _LineLength: 0.988
-    - _WaveCount: 0.75
+    - _WaveCount: 1.82
     - _WaveFlowDirection: 1
-    - _WaveSize: 0.16
-    - _WaveSpeed: 4
+    - _WaveSize: 0.076
+    - _WaveSpeed: 1
     m_Colors:
     - _BodyColour: {r: 0.46666667, g: 0.53333336, b: 0.6, a: 1}
     - _CausticColour: {r: 0.045356445, g: 0.0491887, b: 0.06367925, a: 0}
