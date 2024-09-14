@@ -143,7 +143,7 @@ MonoBehaviour:
   waterMask:
     serializedVersion: 2
     m_Bits: 1
-  splashParticles: {fileID: 0}
+  splashParticles: {fileID: 2172532144953245006, guid: 62ae13437091f1c469f318abae8f0939, type: 3}
 --- !u!114 &8867998523296879384
 MonoBehaviour:
   m_ObjectHideFlags: 0
