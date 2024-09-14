@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - RoverBody
+  - Audio
   layers:
   - Default
   - TransparentFX
@@ -41,6 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Rover
-    uniqueID: 256599127
+  - name: SortingTexture
+    uniqueID: 2349467107
     locked: 0
