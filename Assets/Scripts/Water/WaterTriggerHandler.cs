@@ -11,10 +11,13 @@ public class WaterTriggerHandler : MonoBehaviour
 
     private InteractableWater water;
 
+    AudioManager audioManager;
+
     private void Awake()
     {
         edgeColl = GetComponent<EdgeCollider2D>();
         water = GetComponent<InteractableWater>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,6 +62,9 @@ public class WaterTriggerHandler : MonoBehaviour
                 vel *= multiplier;
 
                 water.Splash(collision, vel);
+
+                //Play the splash noise when a splash happens
+                audioManager.SplashNoise();
             }
 
         }

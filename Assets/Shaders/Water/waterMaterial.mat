@@ -54,7 +54,7 @@ Material:
     - _LineLength: 0.988
     - _WaveCount: 1.82
     - _WaveFlowDirection: 1
-    - _WaveSize: 0.076
+    - _WaveSize: 0.08
     - _WaveSpeed: 1
     m_Colors:
     - _BodyColour: {r: 0.46666667, g: 0.53333336, b: 0.6, a: 1}

@@ -22,15 +22,19 @@ public class RoverSound : MonoBehaviour
 
     public void OnMove(InputValue input)
     {
+        print("Are we recording?");
         movementInput = input.Get<Vector2>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        print("Whoo Ha!");
         //If the rover moves
         if(movementInput.magnitude > movementThreshold)
         {
+
+            print("Moving!");
             if (!engineAudioSource.isPlaying)
                 engineAudioSource.Play();
         }
