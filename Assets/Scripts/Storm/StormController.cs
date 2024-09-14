@@ -25,6 +25,9 @@ public class StormController : MonoBehaviour
     //Initial position of the particle system
     private Vector3 initialPosition;
 
+    //Initial position of the storm object
+    private Vector3 initialStormPosition;
+
     private float delay = 5;
     private bool isActive = false;
 
@@ -38,6 +41,8 @@ public class StormController : MonoBehaviour
         shapeModule = pSystem.shape;
 
         initialPosition = shapeModule.position;
+        initialStormPosition = transform.position;
+
         stormCollider.offset = new Vector2(initialPosition.x, stormCollider.offset.y);
 
         StartCoroutine(DelayedStart());
@@ -60,6 +65,9 @@ public class StormController : MonoBehaviour
 
             //Move the particle system along
             shapeModule.position = new Vector3(initialPosition.x + (currentWidth / 2), initialPosition.y, initialPosition.z);
+
+            //Also move storm with it
+            transform.position = new Vector3(initialStormPosition.x + (currentWidth / 2), initialStormPosition.y, initialStormPosition.z);
 
             //Add an offset (-18) to the collider box to match with the rain drops
             stormCollider.offset = new Vector2((initialPosition.x + (currentWidth / 2)) - 18, stormCollider.offset.y);
