@@ -133,19 +133,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1090719723940517765, guid: b60ae018629bd0947a4befc98d2c4b97, type: 3}
       propertyPath: m_LocalAABB.m_Center.x
-      value: 1343.5127
+      value: 1343.5128
       objectReference: {fileID: 0}
     - target: {fileID: 1090719723940517765, guid: b60ae018629bd0947a4befc98d2c4b97, type: 3}
       propertyPath: m_LocalAABB.m_Center.y
-      value: -34.444305
+      value: -34.88052
       objectReference: {fileID: 0}
     - target: {fileID: 1090719723940517765, guid: b60ae018629bd0947a4befc98d2c4b97, type: 3}
       propertyPath: m_LocalAABB.m_Extent.x
-      value: 1427.434
+      value: 1427.4341
       objectReference: {fileID: 0}
     - target: {fileID: 1090719723940517765, guid: b60ae018629bd0947a4befc98d2c4b97, type: 3}
       propertyPath: m_LocalAABB.m_Extent.y
-      value: 39.92234
+      value: 39.486126
       objectReference: {fileID: 0}
     - target: {fileID: 3480166734417343413, guid: b60ae018629bd0947a4befc98d2c4b97, type: 3}
       propertyPath: m_Name
