@@ -6,6 +6,10 @@ TagManager:
   tags:
   - RoverBody
   - Audio
+  - Water
+  - Roof
+  - Storm
+  - Death
   layers:
   - Default
   - TransparentFX

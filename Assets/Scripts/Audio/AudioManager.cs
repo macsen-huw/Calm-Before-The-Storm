@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+
+    public GameObject audioManager;
+
+    private AudioSource[] audioSources;
+    private bool isPaused = false;
+
+
     [Header("Audio Sources")]
     [SerializeField] AudioSource waves;
     [SerializeField] AudioSource roverEngine;
@@ -13,6 +20,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip engineClip;
     public AudioClip waveClip;
     public AudioClip splashClip;
+
+
+    private void Awake()
+    {
+        audioSources = FindObjectsOfType<AudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -43,5 +56,34 @@ public class AudioManager : MonoBehaviour
     public void SplashNoise()
     {
         splash.Play();
+    }
+
+    //Pause all sounds when paused
+    public void PauseAll()
+    {
+        if(!isPaused)
+        {
+            foreach (var audioSource in audioSources)
+            {
+                if (audioSource.isPlaying)
+                    audioSource.Pause();
+            }
+
+            isPaused = true;
+        }
+    }
+
+    public void ResumeAll()
+    {
+        if(isPaused)
+        {
+            foreach (var audioSource in audioSources)
+            {
+                audioSource.UnPause();
+                
+            }
+
+            isPaused = false;
+        }
     }
 }
