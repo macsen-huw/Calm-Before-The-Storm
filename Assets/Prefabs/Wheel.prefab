@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5971755262469405010}
   m_Layer: 6
   m_Name: Tyre
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
