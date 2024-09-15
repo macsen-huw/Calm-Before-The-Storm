@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Rover : MonoBehaviour
 {
@@ -26,6 +27,14 @@ public class Rover : MonoBehaviour
 
     private Animator animator;
     private AudioManager audioManager;
+
+    public EnergyManager energyManager;
+
+    [Header("Laser")]
+    public Laser laser;
+    public Transform firePoint;
+    public float energyCost = 20f;
+    private Laser currentLaser;
 
     private void Awake()
     {
@@ -70,6 +79,19 @@ public class Rover : MonoBehaviour
         }         
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (energyManager.GetEnergyLevel() >= energyCost)
+            {
+                FireLaser();
+            }
+
+        }
+    }
+
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -94,4 +116,31 @@ public class Rover : MonoBehaviour
 
 
     }
+
+    void FireLaser()
+    {
+
+        energyManager.LoseEnergy(energyCost);
+
+        audioManager.LaserZap();
+
+        Instantiate(laser, firePoint.position, firePoint.rotation);
+        Vector2 forwardDirection = transform.right;
+
+        StartCoroutine(MoveLaser(laser, forwardDirection));
+
+        
+    }
+
+    IEnumerator MoveLaser(Laser laser, Vector2 direction)
+    {
+        while (laser != null)
+        {
+            laser.transform.Translate(direction * speed * Time.deltaTime);
+
+            yield return null;
+        }
+                
+    }
+
 }
