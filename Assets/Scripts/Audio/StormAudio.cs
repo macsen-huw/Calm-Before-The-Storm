@@ -26,7 +26,7 @@ public class StormAudio : MonoBehaviour
 
         float distance = Vector2.Distance(particleSystemWorld, player.position);
 
-        print("Storm Position: " + particleSystemWorld);
+        //print("Storm Position: " + particleSystemWorld);
         if(distance > maxDistance)
          stormAudio.volume = 0;
         else

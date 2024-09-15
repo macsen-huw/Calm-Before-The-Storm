@@ -6,6 +6,11 @@ TagManager:
   tags:
   - RoverBody
   - Audio
+  - Water
+  - Roof
+  - Storm
+  - Death
+  - Ore
   layers:
   - Default
   - TransparentFX
