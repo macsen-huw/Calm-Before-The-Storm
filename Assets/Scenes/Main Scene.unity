@@ -10002,7 +10002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stormAudio: {fileID: 2447549941570759498}
-  player: {fileID: 0}
+  player: {fileID: 81291173}
   maxDistance: 100
 --- !u!4 &7276381391478993033
 Transform:

@@ -50,7 +50,7 @@ public class DeathScreen : MonoBehaviour
     public void Respawn()
     {
         ResetObjects();
-        SceneManager.LoadScene("SectionB");
+        SceneManager.LoadScene("Main Scene");
     }
 
     //Take back to main menu

@@ -92,7 +92,7 @@
                 {
                     "name": "negative",
                     "id": "52419496-e4e1-4f5e-ad03-2c807f18a80a",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "Desktop",
@@ -103,7 +103,7 @@
                 {
                     "name": "positive",
                     "id": "658ac5a5-c2e3-4938-9fca-234cb734a0ea",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Desktop",
