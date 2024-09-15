@@ -46,6 +46,10 @@ public class EnergyManager : MonoBehaviour
         energyBar.fillAmount = energyAmount / maxEnergy;
     }
 
+    public float GetEnergyLevel()
+    {
+        return energyAmount;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
