@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 7256805310352285748}
   - component: {fileID: 87548534300539228}
   - component: {fileID: 6458743318957817108}
+  - component: {fileID: 662437808022517470}
   m_Layer: 0
   m_Name: UpdatedRover
   m_TagString: Player
@@ -479,11 +480,48 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c3fb95ef-1cd1-449d-8464-38edcd747404
     m_ActionName: Rover/Move[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 87548534300539228}
+        m_TargetAssemblyTypeName: Rover, Assembly-CSharp
+        m_MethodName: OnToggleMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2fabf3a7-55f9-4b9b-91ab-8b6978b4787c
+    m_ActionName: Rover/ToggleMode[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Desktop
   m_DefaultActionMap: Rover
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &662437808022517470
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4133232381417577003}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac2bb708b83a64343a7c68991cb8754b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5472761701080759791
 GameObject:
   m_ObjectHideFlags: 0

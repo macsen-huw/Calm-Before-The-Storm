@@ -17,7 +17,7 @@ public class WaterTriggerHandler : MonoBehaviour
     {
         edgeColl = GetComponent<EdgeCollider2D>();
         water = GetComponent<InteractableWater>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio")?.GetComponent<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
