@@ -73,7 +73,7 @@ public class Rover : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        isUnderwater = Physics2D.OverlapCircle(waterCheck.position, 1.0f, waterLayer);
+        isUnderwater = Physics2D.OverlapCircle(waterCheck.position, 0.25f, waterLayer);
 
         if (!inSubmarineMode) {
             foreach (Rigidbody2D tyre in tyreRigidbodies) {

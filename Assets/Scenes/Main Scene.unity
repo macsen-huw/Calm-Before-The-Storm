@@ -373,6 +373,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8352b8f59b00b84b83d6864807a3d1e, type: 3}
+--- !u!114 &100424908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 716623219558184652, guid: c8352b8f59b00b84b83d6864807a3d1e, type: 3}
+  m_PrefabInstance: {fileID: 100424907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &100424909 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1233776134067553543, guid: c8352b8f59b00b84b83d6864807a3d1e, type: 3}
+  m_PrefabInstance: {fileID: 100424907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &234518090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4313,6 +4335,14 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4295251186743873191, guid: 56da001831b17d84aba9f7c9d13b93ed, type: 3}
+      propertyPath: oxygenBar
+      value: 
+      objectReference: {fileID: 100424909}
+    - target: {fileID: 4295251186743873191, guid: 56da001831b17d84aba9f7c9d13b93ed, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 2110373877}
     - target: {fileID: 4515117005993105901, guid: 56da001831b17d84aba9f7c9d13b93ed, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -4329,6 +4359,14 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7058832476220052762, guid: 56da001831b17d84aba9f7c9d13b93ed, type: 3}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 100424908}
+    - target: {fileID: 7058832476220052762, guid: 56da001831b17d84aba9f7c9d13b93ed, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 2110373877}
     - target: {fileID: 8035984349321514497, guid: 56da001831b17d84aba9f7c9d13b93ed, type: 3}
       propertyPath: m_SortingLayer
       value: 2

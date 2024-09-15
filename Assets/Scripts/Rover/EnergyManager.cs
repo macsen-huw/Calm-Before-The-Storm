@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class EnergyManager : MonoBehaviour
 {
 
-    public Image energyBar;
-    public DeathScreen deathScreen;
-    public float energyAmount = 100f;
-    public float maxEnergy = 100f;
-    private bool inStorm = false;
-    public float stormDamageRate = 25f;
+    [SerializeField] private Image energyBar;
+    [SerializeField] private DeathScreen deathScreen;
+    [SerializeField] private float maxEnergy = 100f;
+    [SerializeField] private float stormDamageRate = 25f;
 
+    private float energyAmount = 100f;
+    private bool inStorm = false;
 
     private void Start()
     {
@@ -20,16 +20,13 @@ public class EnergyManager : MonoBehaviour
 
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     { 
-
         //If within the storm, then the player has died
         if(inStorm)
         {
             deathScreen.HasDied();
-        }
-
-        
+        }        
     }
 
     public void LoseEnergy(float damage)

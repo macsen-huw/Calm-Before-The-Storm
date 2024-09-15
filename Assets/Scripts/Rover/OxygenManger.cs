@@ -5,47 +5,37 @@ using UnityEngine.UI;
 
 public class OxygenManger : MonoBehaviour
 {
-    public Image oxygenBar;
-    public DeathScreen deathScreen;
-    public EdgeCollider2D waterCollider;
-    public float oxygenLevel = 100f;
-    public float maxOxygen = 100f;
-    public float oxygenDepletionRate = 1f;
-    public float oxygenRegenerationRate = 1f;
-    private bool isUnderWater = false;
+    [SerializeField] private Transform waterCheck;
+    [SerializeField] private LayerMask waterLayer;
+    [SerializeField] private Image oxygenBar;
+    [SerializeField] private DeathScreen deathScreen;
+    [SerializeField] private float maxOxygen = 100f;
+    [SerializeField] private float oxygenDepletionRate = 1f;
+    [SerializeField] private float oxygenRegenerationRate = 1f;
+    
+    private float oxygenLevel = 100f;
+    private bool isUnderwater = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        oxygenBar.fillAmount = oxygenLevel / maxOxygen;
+        oxygenBar.fillAmount = maxOxygen;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        isUnderwater = Physics2D.OverlapCircle(waterCheck.position, 1.0f, waterLayer);
 
-        Vector2 point = transform.position;
-        Vector2 closestColliderPoint = waterCollider.ClosestPoint(point);
-
-        float difference = (point - closestColliderPoint).y;
-
-        if (difference <= 0)
-            isUnderWater = true;
-        else
-            isUnderWater = false;
-
-        if(isUnderWater)
-        {
+        if (isUnderwater) {
             float depletedOxygen = oxygenDepletionRate * Time.deltaTime;
             DepleteOxygen(depletedOxygen);
         }
         
-        else
-        {
+        else {
             //Making less calculations by only replenishing if not already replenished
-            if(oxygenLevel != maxOxygen)
-            {
+            if (oxygenLevel != maxOxygen) {
                 float regeneratedOxygen = oxygenRegenerationRate * Time.deltaTime;
                 RegenerateOxygen(regeneratedOxygen);
             }
