@@ -18,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Rover
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: SortingTexture
     uniqueID: 2349467107
+    locked: 0
+  - name: Rover
+    uniqueID: 2835903945
     locked: 0
