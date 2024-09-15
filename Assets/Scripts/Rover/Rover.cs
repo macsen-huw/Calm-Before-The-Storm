@@ -86,7 +86,7 @@ public class Rover : MonoBehaviour
         }
 
         //If rover is moving
-        if (Math.Abs(moveInput) > moveThreshold)
+        if (Math.Abs(moveInput) > moveThreshold || Math.Abs(thrustInput) > moveThreshold)
             audioManager.RoverMoving();
         //Otherwise is isn't moving
         else 
