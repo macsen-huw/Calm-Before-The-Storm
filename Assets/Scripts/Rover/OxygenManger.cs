@@ -7,27 +7,34 @@ public class OxygenManger : MonoBehaviour
 {
     public Image oxygenBar;
     public DeathScreen deathScreen;
+    public EdgeCollider2D waterCollider;
     public float oxygenLevel = 100f;
     public float maxOxygen = 100f;
     public float oxygenDepletionRate = 1f;
     public float oxygenRegenerationRate = 1f;
     private bool isUnderWater = false;
 
-    private void Awake()
-    {
-       
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        oxygenBar.fillAmount = oxygenLevel / maxOxygen;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        Vector2 point = transform.position;
+        Vector2 closestColliderPoint = waterCollider.ClosestPoint(point);
+
+        float difference = (point - closestColliderPoint).y;
+
+        if (difference <= 0)
+            isUnderWater = true;
+        else
+            isUnderWater = false;
+
         if(isUnderWater)
         {
             float depletedOxygen = oxygenDepletionRate * Time.deltaTime;
@@ -64,24 +71,4 @@ public class OxygenManger : MonoBehaviour
         oxygenBar.fillAmount = oxygenLevel / maxOxygen;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        print("On Trigger Enter Collision");
-        if (other.CompareTag("Water"))
-        {
-            print("Currently under water");
-            isUnderWater = true;
-        }
-
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        print("On Trigger Exit Collision");
-        if (other.CompareTag("Water"))
-        {
-            print("Currently above water");
-            isUnderWater = false;
-        }
-    }
 }
