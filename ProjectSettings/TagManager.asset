@@ -11,6 +11,8 @@ TagManager:
   - Storm
   - Death
   - Ore
+  - Rock
+  - Laser
   layers:
   - Default
   - TransparentFX

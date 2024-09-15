@@ -9,6 +9,9 @@ using UnityEngine.Rendering;
 public class StormController : MonoBehaviour
 {
 
+    [SerializeField] private DeathScreen deathScreen;
+
+
     [Header("Particle System")]
 
     //Rate at which the storm expands horizontally
@@ -79,11 +82,9 @@ public class StormController : MonoBehaviour
  
       private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("RoverBody"))
+        if(other.CompareTag("Player"))
         {
-            print("You've been hit!");
-
-            //End Game
+            deathScreen.HasDied();
         }
     }
 }

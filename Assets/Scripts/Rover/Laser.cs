@@ -5,7 +5,6 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
 
-    public GameObject laser;
     public float speed = 10f;
     public float lifetime = 10f;
 
