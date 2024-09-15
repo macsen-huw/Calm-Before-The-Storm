@@ -15,11 +15,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource waves;
     [SerializeField] AudioSource roverEngine;
     [SerializeField] AudioSource splash;
+    [SerializeField] AudioSource laser;
 
     [Header("Audio Clips")]
     public AudioClip engineClip;
     public AudioClip waveClip;
     public AudioClip splashClip;
+    public AudioClip laserClip;
 
 
     private void Awake()
@@ -33,6 +35,7 @@ public class AudioManager : MonoBehaviour
         waves.clip = waveClip;
         roverEngine.clip = engineClip;
         splash.clip = splashClip;
+        laser.clip = laserClip;
 
         waves.Play();
     }
@@ -56,6 +59,11 @@ public class AudioManager : MonoBehaviour
     public void SplashNoise()
     {
         splash.Play();
+    }
+
+    public void LaserZap()
+    {
+        laser.Play();
     }
 
     //Pause all sounds when paused
