@@ -16,6 +16,7 @@ public class StormController : MonoBehaviour
 
     //Rate at which the storm expands horizontally
     [SerializeField] private float movementRate = 10f;
+    public float delay = 15f;
 
     //Initial Width of the storm
     private float currentWidth = 1f;
@@ -30,8 +31,6 @@ public class StormController : MonoBehaviour
 
     //Initial position of the storm object
     private Vector3 initialStormPosition;
-
-    private float delay = 5;
     private bool isActive = false;
 
     private void Start()
